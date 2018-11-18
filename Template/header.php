@@ -36,9 +36,21 @@
       <li class="nav-item">
         <a class="nav-link" href="basket.php">Panier</a>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="delete_form.php">Delete un produit</a>
-      </li>
+      <?php
+      if ($_SESSION["user"]["status"]==="admin"){
+        ?>
+              <li class="nav-item active">
+                <?php echo" <a class='nav-link' href='delete_form.php'>Delete un produit</a>" ?>
+              </li>
+              <li class="nav-item active">
+                <?php echo" <a class='nav-link' href='add_form.php'>Add un produit</a>" ?>
+              </li>";
+              <?php
+      }
+      else {
+        echo "Vous n'avez pas les droits pour deleter ou add un produit";
+      } ?>
+
     </ul>
   </div>
 </nav>
